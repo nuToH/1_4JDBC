@@ -6,7 +6,7 @@ import jm.task.core.jdbc.model.User;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
-    private UserDao userDao = new UserDaoJDBCImpl();
+    private final UserDao userDao = new UserDaoJDBCImpl();
 
     public UserServiceImpl() {
 
@@ -29,13 +29,7 @@ public class UserServiceImpl implements UserService {
         userDao.removeUserById(id);
     }
 
-    public List<User> getAllUsers()  {
-        List<User> users =  userDao.getAllUsers();
-        for (User user : users) {
-            System.out.println(user);
-        }
-        return users;
-    }
+    public List<User> getAllUsers()  { return userDao.getAllUsers(); }
 
     public void cleanUsersTable()  {
         userDao.cleanUsersTable();
