@@ -1,7 +1,9 @@
 package jm.task.core.jdbc.util;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
 public class Util {
 
 
@@ -13,19 +15,19 @@ public class Util {
 
     }
 
-        public static Connection getConnection() {
-            Connection connection;
-            try {
-                connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-                connection.setAutoCommit(false);
-                System.out.println("Connection done");
-            } catch (SQLException e) {
-                System.out.println("Connection failed");
-                throw new RuntimeException(e);
+    public static Connection getConnection() {
+        Connection connection;
+        try {
+            connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            connection.setAutoCommit(false);
+            System.out.println("Connection done");
+        } catch (SQLException e) {
+            System.out.println("Connection failed");
+            throw new RuntimeException(e);
 
-            }
-            return connection;
         }
+        return connection;
+    }
 
 
 }
